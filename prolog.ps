@@ -1,4 +1,7 @@
 %!PS-Adobe-3.0 Resource-ProcSet
+%%Title: VIM-Prolog
+%%Version: 1.3 1
+%%EndComments
 % Editing of this file is NOT RECOMMENDED.  You run a very good risk of causing
 % all PostScript printing from VIM failing if you do.  PostScript is not called
 % a write-only language for nothing!
@@ -9,17 +12,17 @@
 /L2 systemdict/languagelevel 2 copy known{get exec}{pop pop 1}ifelse 2 ge d
 /m{moveto}bd/s{show}bd
 /DH F d /FS 0 d
-% Alternative Page Header printing procedures.  To replace the default first
-% comment the default ms procedure (just adda % to the start of the line)
+% Alternative Page Header printing procedures.  To replace the default, first
+% comment out (just add a % to the start of the line) the default ms procedure 
 % and uncomment (remove the % at the start of the line) the ms procedure after
 % the description of the page header printing you would like. 
-% Default
+% Default:
 /ms{m s}bd
-% Underlined
+% Underlined:
 %/ms{m DH not{dup stringwidth pop ul/DH T d}if s}bd
-% Gray background
+% Gray background:
 %/ms{m DH not{dup stringwidth pop FS .85 dup dup bg/DH T d}if s}bd
-% Boxed
+% Boxed:
 %/ms{m DH not{dup stringwidth pop FS gs UW setlinewidth cp BO add 4 -2 roll rectstroke gr/DH T d}if s}bd
 /g{setgray}bd/r{setrgbcolor}bd/sp{showpage}bd
 /gs{gsave}bd/gr{grestore}bd/cp{currentpoint}bd
@@ -41,7 +44,11 @@ statusdict/setduplexmode 2 copy known{get exec}{pop pop pop}ifelse}bd
 /c{pop}bd
 }ifelse
 /ffs{findfont exch dup /FS ed scalefont d}bd/sf{setfont}bd
-/ref{1 db findfont dup maxlength dict/NFD ed{exch dup/FID ne{exch NFD 3 1 roll
-put}{pop pop}ifelse}forall dup length 256 eq{NFD/Encoding 3 -1 roll
-put}{pop}ifelse dup NFD/FontName 3 -1 roll put NFD definefont pop end}bd
+/ref{1 db findfont dup maxlength dict /NFD ed{exch dup/FID ne{exch NFD 3 1 roll
+put}{pop pop}ifelse}forall/Encoding findresource dup length 256 eq{NFD/Encoding
+3 -1 roll put}{pop}ifelse NFD dup/FontType get 3 ne{/CharStrings}{/CharProcs}
+ifelse 2 copy get dup maxlength dict copy[/questiondown/space]{2 copy known{2
+copy get 2 index/.notdef 3 -1 roll put pop exit}if pop}forall put dup NFD
+/FontName 3 -1 roll put NFD definefont pop end}bd
 % vim:ff=unix:
+%%EOF
