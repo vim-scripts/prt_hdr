@@ -1,0 +1,7 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=332
+
+These files enable you to have page headers printed differently. Styles available include underlined, gray background, and in a box.
+
+To select the style you want you will need to edit the file and comment out 1 line and uncomment another. See comments in the file (lines beginning with %).  There is no control from within VIM short of editing this file.
+
+This file will only work if you are printing headers (i.e. header in printoptions has a value of 1 or more) and that the header fits on a single line. Otherwise the header style will be applied to the first line of text on each page.
